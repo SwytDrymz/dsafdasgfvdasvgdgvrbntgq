@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}View Tasks{% endblock %}
+
+{% block content %}
+<h1>Your tasks:</h1>
+
+{% if tasks %}
+    <ul>
+    {% for task in tasks %}
+        <li> <h2>Title: {{ task.title }}</h2>Description: {{ task.description }} <br> Date: {{ task.date | date_to_human_readable }} <br> Time to complete: {{task.date | days_until}} days</li>
+        <form action="{{ url_for('complete_task', task_id=task['id']) }}" method="POST">
+            <input type="hidden" name="action" value="complete"/>
+            <input type="submit" value="complete" class="btn btn-dark"/>
+        </form>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tasks to show.</p>
+{% endif %}
+
+
+
+
+
+<a href="{{ url_for('user') }}">Back to User Page</a>
+{% endblock %}

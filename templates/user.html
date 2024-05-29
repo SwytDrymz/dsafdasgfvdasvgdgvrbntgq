@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}User{% endblock %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+<h2> {{username}} </h2>
+
+<form action="{{ url_for('viewtasks') }}" method="GET">
+    <input type="hidden" name="action" value="view_tasks"/>
+    <input type="submit" value="View tasks" class="btn btn-dark" />
+</form>
+
+<form action="{{ url_for('addtasks') }}" method="GET">
+    <input type="hidden" name="action" value="add_tasks"/>
+    <input type="submit" value="Add tasks" class="btn btn-dark" />
+</form>
+
+{% if pending_tasks_count > 0 %}
+    {% if pending_tasks_count > 1 %}
+        <h3>You have {{ pending_tasks_count }} pending tasks!</h3>
+    {% else %}
+        <h3>You have 1 pending task!</h3>
+    {% endif %}
+{% else %}
+    <h3>You have no pending tasks!</h3>
+{% endif %}
+
+
+
+{% if completed_tasks_count > 1 %}
+    <h3>You have already completed {{ completed_tasks_count }} tasks!</h3>
+{% elif completed_tasks_count == 1 %}
+    <h3>You have already completed 1 task!</h3>
+{% else %}
+    <h3>You have not completed any tasks yet!</h3>
+{% endif %}
+
+{% if failed_tasks_count > 1 %}
+    <h3>You have failed {{ failed_tasks_count }} tasks!</h3>
+{% elif failed_tasks_count == 1 %}
+    <h3>You have failed 1 task!</h3>
+{% else %}
+    <h3>You have not failed any tasks yet!</h3>
+{% endif %}
+
+
+{% endblock %}

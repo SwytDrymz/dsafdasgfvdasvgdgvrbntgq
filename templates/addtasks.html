@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}User{% endblock %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+<h1>Add task</h1>
+
+    <form action="" method="post">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description"><br>
+        <label for="date">Due Date:</label><br>
+        <input type="date" id="date" name="date"><br><br>
+        <input type="submit" value="Add Task" class="btn btn-dark" >
+    </form>
+
+
+
+<form action="{{ url_for('viewtasks') }}" method="GET">
+    <input type="hidden" name="action" value="view_tasks"/>
+    <input type="submit" value="View tasks" class="btn btn-dark" />
+</form>
+
+{% endblock %}

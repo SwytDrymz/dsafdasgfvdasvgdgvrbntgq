@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Creating acc Page{% endblock %}
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+<h1>Create an account</h1>
+
+    <form action="{{ url_for('create_account') }}" method="post">
+        <p>Userame:</p>
+        <p><input type="text" name="username" /></p>
+        <p>Password:</p>
+        <p><input type="password" name="password" /></p>
+        <p><input type="submit" value="submit" class="btn btn-dark" /></p>
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+body {
+    background: rgb(159,61,228);
+    background: linear-gradient(90deg, rgba(159,61,228,0.3449754901960784) 10%, rgba(214,72,113,0.3477766106442577) 77%);
+}
+
+.main-content {
+
+    padding-left: 50px;
+}
+
+
+header, .navbar {
+    width: 100%; 
+    margin: 0; 
+    padding: 10px; 
+    background: rgb(90, 2, 152);
+    background: linear-gradient(90deg, rgba(159,61,228,1) 10%, rgba(214,72,113,1) 77%);
+}
+
+.nav-link {
+    color: black;
+    font-size: 26px;
+    margin-right: 20px
+}
+
+form {
+    background-color: #b393d3;
+    padding: 15px;
+    margin: 20px ;
+    max-width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+h1 {
+    font-size: 50px;
+    font-weight: 600;
+    background-image: linear-gradient(to left, #553c9a, #b393d3);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: radial-gradient(circle, #553c9a, #ee4b2b);
+    padding-bottom: 10px;
+  }
+
+h2 {
+    font-size: 70px;
+    font-weight: 600;
+    background-image: linear-gradient(to left, #553c9a, #b393d3);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: radial-gradient(circle, #553c9a, #ee4b2b);
+    padding-bottom: 10px;
+  }
